@@ -1,18 +1,34 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(new MyApp());
+void main() {
+  runApp(
+    MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Hello Rectangle',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Hello Rectangle'),
+        ),
+        body: HelloRectangle(),
+      ),
+    ),
+  );
+}
 
-class MyApp extends StatelessWidget {
+class HelloRectangle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      title: 'Welcome to Flutter',
-      home: new Scaffold(
-        appBar: new AppBar(
-          title: new Text('Welcome to Flutter'),
-        ),
-        body: new Center(
-          child: new Text('Hello World'),
+    return Center(
+      child: Container(
+        color: Colors.greenAccent,
+        height: 400.0,
+        width: 300.0,
+        child: Center(
+          child: Text(
+            'Hello!',
+            style: TextStyle(fontSize: 40.0),
+            textAlign: TextAlign.center,
+          ),
         ),
       ),
     );
