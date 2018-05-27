@@ -6,7 +6,6 @@ final _rowHeight = 100.0;
 final _borderRadius = BorderRadius.circular(_rowHeight / 2);
 
 /// A custom [Category] widget.
-///
 /// The widget is composed on an [Icon] and [Text]. Tapping on the widget shows
 /// a colored [InkWell] animation.
 class Category extends StatelessWidget {
@@ -15,7 +14,6 @@ class Category extends StatelessWidget {
   final IconData iconLocation;
 
   /// Creates a [Category].
-  ///
   /// A [Category] saves the name of the Category (e.g. 'Length'), its color for
   /// the UI, and the icon that represents it (e.g. a ruler).
   // While the @required checks for whether a named parameter is passed in,

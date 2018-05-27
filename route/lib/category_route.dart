@@ -4,10 +4,8 @@ import 'package:route/category.dart';
 final _backgroundColor = Colors.green[100];
 
 /// Category Route (screen).
-///
 /// This is the 'home' screen of the Unit Converter. It shows a header and
 /// a list of [Categories].
-///
 /// While it is named CategoryRoute, a more apt name would be CategoryScreen,
 /// because it is responsible for the UI at the route's destination.
 class CategoryRoute extends StatelessWidget {
@@ -36,7 +34,6 @@ class CategoryRoute extends StatelessWidget {
   ];
 
   /// Makes the correct number of rows for the list view.
-  ///
   /// For portrait, we construct a [ListView] from the list of category widgets.
   Widget _buildCategoryWidgets(List<Widget> categories) {
     return ListView.builder(
