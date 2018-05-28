@@ -72,7 +72,7 @@ class Category extends StatelessWidget {
           borderRadius: _borderRadius,
           highlightColor: color,
           splashColor: color,
-          // We can use either the () => function() or the () { function(); }
+          // We can use eit her the () => function() or the () { function(); }
           // syntax.
           onTap: () => _navigateToConverter(context),
           child: Padding(
