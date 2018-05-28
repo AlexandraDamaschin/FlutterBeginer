@@ -62,8 +62,7 @@ class Category extends StatelessWidget {
   // This `context` parameter describes the location of this widget in the
   // widget tree. It can be used for obtaining Theme data from the nearest
   // Theme ancestor in the tree. Below, we obtain the display1 text theme.
-  // See https://docs.flutter.io/flutter/material/Theme-class.html
-  Widget build(BuildContext context) {
+   Widget build(BuildContext context) {
     return Material(
       color: Colors.transparent,
       child: Container(
@@ -82,7 +81,6 @@ class Category extends StatelessWidget {
               // There are two ways to denote a list: `[]` and `List()`.
               // Prefer to use the literal syntax, i.e. `[]`, instead of `List()`.
               // You can add the type argument if you'd like, i.e. <Widget>[].
-              // See https://www.dartlang.org/guides/language/effective-dart/usage#do-use-collection-literals-when-possible
               children: [
                 Padding(
                   padding: EdgeInsets.all(16.0),
