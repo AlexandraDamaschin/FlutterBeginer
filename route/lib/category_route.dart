@@ -46,6 +46,7 @@ class CategoryRoute extends StatelessWidget {
   Widget build(BuildContext context) {
     final categories = <Category>[];
 
+//for each item in the list we add name, color and icon
     for (var i = 0; i < _categoryNames.length; i++) {
       categories.add(Category(
         name: _categoryNames[i],
