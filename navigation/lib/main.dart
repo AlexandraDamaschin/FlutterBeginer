@@ -7,10 +7,11 @@ void main() {
   runApp(UnitConvertorApp());
 }
 //this widget = root of the app
+//in the first screen we see a list of [Categories]
+//each with a list of [Unit]s
 class UnitConvertorApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Unit Convertor',
