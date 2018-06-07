@@ -7,6 +7,7 @@ const _padding = EdgeInsets.all(16.0);
 
 //[ConverterRoute] where users can input amounts to convert in one [Unit]
 // and retrieve the conversion in another [Unit] for a specific [Category].
+
 // While it is named ConverterRoute, a more apt name would be ConverterScreen,
 // because it is responsible for the UI at the route's destination.
 class ConverterRoute extends StatefulWidget {
@@ -34,8 +35,13 @@ class ConverterRoute extends StatefulWidget {
 }
 
 class _ConverterRouteState extends State<ConverterRoute> {
-  // TODO: Set some variables, such as for keeping track of the user's input
   // value and units
+  Unit _fromValue;
+  Unit _toValue;
+  double _inputValue;
+  String _convertedValue = '';
+  List<DropdownMenuItem> _unitMenuItems;
+  bool _showValidationError = false;
 
   // TODO: Determine whether you need to override anything, such as initState()
 
