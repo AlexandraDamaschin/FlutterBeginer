@@ -258,37 +258,20 @@ class _ConverterRouteState extends State<ConverterRoute> {
         ],
       ),
     );
-    // TODO: Return the input, arrows, and output widgets, wrapped in
 
-    // TODO: Delete the below placeholder code
-    final unitWidgets = widget.units.map((Unit unit) {
-      return Container(
-        color: widget.color,
-        margin: EdgeInsets.all(8.0),
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          children: <Widget>[
-            Text(
-              unit.name,
-              style: Theme
-                  .of(context)
-                  .textTheme
-                  .headline,
-            ),
-            Text(
-              'Conversion: ${unit.conversion}',
-              style: Theme
-                  .of(context)
-                  .textTheme
-                  .subhead,
-            ),
-          ],
-        ),
-      );
-    }).toList();
+    // Return the input, arrows, and output widgets, wrapped in
+    final converter = Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        input,
+        arrows,
+        output,
+      ],
+    );
 
-    return ListView(
-      children: unitWidgets,
+    return Padding(
+      padding: _padding,
+      child: converter,
     );
   }
 }
