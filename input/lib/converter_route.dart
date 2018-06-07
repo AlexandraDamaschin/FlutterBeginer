@@ -229,8 +229,35 @@ class _ConverterRouteState extends State<ConverterRoute> {
       ),
     );
 
-    // TODO: Create the 'output' group of widgets. This is a Column that
-
+    // Create the 'output' group of widgets.
+    final output = Padding(
+      padding: _padding,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          InputDecorator(
+            child: Text(
+              _convertedValue,
+              style: Theme
+                  .of(context)
+                  .textTheme
+                  .display1,
+            ),
+            decoration: InputDecoration(
+              labelText: 'Output',
+              labelStyle: Theme
+                  .of(context)
+                  .textTheme
+                  .display1,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(0.0),
+              ),
+            ),
+          ),
+          _createDropdown(_toValue.name, _updateToConversion),
+        ],
+      ),
+    );
     // TODO: Return the input, arrows, and output widgets, wrapped in
 
     // TODO: Delete the below placeholder code
