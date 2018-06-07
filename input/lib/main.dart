@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'category_route.dart';
 
-void main() => runApp(new MyApp());
-
 // The function that is called when main.dart is run.
 void main() {
   runApp(UnitConverterApp());
