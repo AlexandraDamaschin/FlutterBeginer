@@ -220,7 +220,14 @@ class _ConverterRouteState extends State<ConverterRoute> {
       ),
     );
 
-    // TODO: Create a compare arrows icon.
+    // Create a compare arrows icon.
+    final arrows = RotatedBox(
+      quarterTurns: 1,
+      child: Icon(
+        Icons.compare_arrows,
+        size: 40.0,
+      ),
+    );
 
     // TODO: Create the 'output' group of widgets. This is a Column that
 
