@@ -50,7 +50,6 @@ class _ConverterRouteState extends State<ConverterRoute> {
     _setDefaults();
   }
 
-  // TODO: Determine whether you need to override anything, such as initState()
 // Creates fresh list of [DropdownMenuItem] widgets, given a list of [Unit]s.
   void _createDropdownMenuItems() {
     var newItems = <DropdownMenuItem>[];
@@ -70,9 +69,15 @@ class _ConverterRouteState extends State<ConverterRoute> {
     });
   }
 
-  // TODO: Add other helper functions. We've given you one, _format()
+  // Sets the default values for the 'from' and 'to' [Dropdown]s.
+  void _setDefaults() {
+    setState(() {
+      _fromValue = widget.units[0];
+      _toValue = widget.units[1];
+    });
+  }
 
-  /// Clean up conversion; trim trailing zeros, e.g. 5.500 -> 5.5, 10.0 -> 10
+  // Clean up conversion; trim trailing zeros, e.g. 5.500 -> 5.5, 10.0 -> 10
   String _format(double conversion) {
     var outputNum = conversion.toStringAsPrecision(7);
     if (outputNum.contains('.') && outputNum.endsWith('0')) {
@@ -86,6 +91,95 @@ class _ConverterRouteState extends State<ConverterRoute> {
       return outputNum.substring(0, outputNum.length - 1);
     }
     return outputNum;
+  }
+
+  void _updateConversion() {
+    setState(() {
+      _convertedValue =
+          _format(_inputValue * (_toValue.conversion / _fromValue.conversion));
+    });
+  }
+
+  void _updateInputValue(String input) {
+    setState(() {
+      if (input == null || input.isEmpty) {
+        _convertedValue = '';
+      } else {
+        // Even though we are using the numerical keyboard, we still have to check
+        // for non-numerical input such as '5..0' or '6 -3'
+        try {
+          final inputDouble = double.parse(input);
+          _showValidationError = false;
+          _inputValue = inputDouble;
+          _updateConversion();
+        } on Exception catch (e) {
+          print('Error: $e');
+          _showValidationError = true;
+        }
+      }
+    });
+  }
+
+  Unit _getUnit(String unitName) {
+    return widget.units.firstWhere(
+          (Unit unit) {
+        return unit.name == unitName;
+      },
+      orElse: null,
+    );
+  }
+
+  void _updateFromConversion(dynamic unitName) {
+    setState(() {
+      _fromValue = _getUnit(unitName);
+    });
+    if (_inputValue != null) {
+      _updateConversion();
+    }
+  }
+
+  void _updateToConversion(dynamic unitName) {
+    setState(() {
+      _toValue = _getUnit(unitName);
+    });
+    if (_inputValue != null) {
+      _updateConversion();
+    }
+  }
+
+  Widget _createDropdown(String currentValue, ValueChanged<dynamic> onChanged) {
+    return Container(
+      margin: EdgeInsets.only(top: 16.0),
+      decoration: BoxDecoration(
+        // This sets the color of the [DropdownButton] itself
+        color: Colors.grey[50],
+        border: Border.all(
+          color: Colors.grey[400],
+          width: 1.0,
+        ),
+      ),
+      padding: EdgeInsets.symmetric(vertical: 8.0),
+      child: Theme(
+        // This sets the color of the [DropdownMenuItem]
+        data: Theme.of(context).copyWith(
+          canvasColor: Colors.grey[50],
+        ),
+        child: DropdownButtonHideUnderline(
+          child: ButtonTheme(
+            alignedDropdown: true,
+            child: DropdownButton(
+              value: currentValue,
+              items: _unitMenuItems,
+              onChanged: onChanged,
+              style: Theme
+                  .of(context)
+                  .textTheme
+                  .title,
+            ),
+          ),
+        ),
+      ),
+    );
   }
 
   @override
