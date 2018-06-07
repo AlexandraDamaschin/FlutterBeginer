@@ -184,8 +184,41 @@ class _ConverterRouteState extends State<ConverterRoute> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: Create the 'input' group of widgets. This is a Column that includes
+    // Create the 'input' group of widgets. This is a Column that includes
     // includes the output value, and 'from' unit [Dropdown].
+    final input = Padding(
+      padding: _padding,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          // This is the widget that accepts text input. In this case, it
+          // accepts numbers and calls the onChanged property on update.
+          // You can read more about it here: https://flutter.io/text-input
+          TextField(
+            style: Theme
+                .of(context)
+                .textTheme
+                .display1,
+            decoration: InputDecoration(
+              labelStyle: Theme
+                  .of(context)
+                  .textTheme
+                  .display1,
+              errorText: _showValidationError ? 'Invalid number entered' : null,
+              labelText: 'Input',
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(0.0),
+              ),
+            ),
+            // Since we only want numerical input, we use a number keyboard. There
+            // are also other keyboards for dates, emails, phone numbers, etc.
+            keyboardType: TextInputType.number,
+            onChanged: _updateInputValue,
+          ),
+          _createDropdown(_fromValue.name, _updateFromConversion),
+        ],
+      ),
+    );
 
     // TODO: Create a compare arrows icon.
 
