@@ -43,7 +43,32 @@ class _ConverterRouteState extends State<ConverterRoute> {
   List<DropdownMenuItem> _unitMenuItems;
   bool _showValidationError = false;
 
+  @override
+  void initState() {
+    super.initState();
+    _createDropdownMenuItems();
+    _setDefaults();
+  }
+
   // TODO: Determine whether you need to override anything, such as initState()
+// Creates fresh list of [DropdownMenuItem] widgets, given a list of [Unit]s.
+  void _createDropdownMenuItems() {
+    var newItems = <DropdownMenuItem>[];
+    for (var unit in widget.units) {
+      newItems.add(DropdownMenuItem(
+        value: unit.name,
+        child: Container(
+          child: Text(
+            unit.name,
+            softWrap: true,
+          ),
+        ),
+      ));
+    }
+    setState(() {
+      _unitMenuItems = newItems;
+    });
+  }
 
   // TODO: Add other helper functions. We've given you one, _format()
 
