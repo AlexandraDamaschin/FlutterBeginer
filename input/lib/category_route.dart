@@ -87,7 +87,7 @@ class _CategoryRouteState extends State<CategoryRoute> {
     );
   }
 
-  ///Returns a list of mock [Unit]s.
+  //Returns a list of mock [Unit]s.
   List<Unit> _retrieveUnitList(String categoryName) {
     return List.generate(10, (int i) {
       i += 1;
@@ -100,6 +100,7 @@ class _CategoryRouteState extends State<CategoryRoute> {
 
   @override
   Widget build(BuildContext context) {
+    // TODO: Import and use the Backdrop widget
     final listView = Container(
       color: _backgroundColor,
       padding: EdgeInsets.symmetric(horizontal: 8.0),
