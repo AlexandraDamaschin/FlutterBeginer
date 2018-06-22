@@ -115,7 +115,6 @@ class _BackdropTitle extends AnimatedWidget {
 //by default, and slides down to show the back panel, from which a user
 //can make a selection. The user can also configure the titles for when the
 //front or back panel is showing.
-
 class Backdrop extends StatefulWidget {
   final Category currentCategory;
   final Widget frontPanel;
@@ -198,7 +197,6 @@ class _BackdropState extends State<Backdrop>
 
   // By design: the panel can only be opened with a swipe. To close the panel
   // the user must either tap its heading or the backdrop's menu icon.
-
   void _handleDragUpdate(DragUpdateDetails details) {
     if (_controller.isAnimating ||
         _controller.status == AnimationStatus.completed) return;
