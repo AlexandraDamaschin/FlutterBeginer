@@ -15,8 +15,7 @@ class CategoryTile extends StatelessWidget {
   final Category category;
   final ValueChanged<Category> onTap;
 
-  //The [CategoryTile] shows the name and color of a [Category] for unit
-  // conversions.
+  //The [CategoryTile] shows the name and color of a [Category] for unit conversions.
   // Tapping on it brings you to the unit converter.
   const CategoryTile({
     Key key,
@@ -45,8 +44,7 @@ class CategoryTile extends StatelessWidget {
             backgroundColor: category.color,
           ),
           body: UnitConverter(category: category),
-          // This prevents the attempt to resize the screen when the keyboard
-          // is opened
+          // This prevents the attempt to resize the screen when the keyboard is opened
           resizeToAvoidBottomPadding: false,
         );
       },
@@ -68,8 +66,7 @@ class CategoryTile extends StatelessWidget {
           borderRadius: _borderRadius,
           highlightColor: category.color['highlight'],
           splashColor: category.color['splash'],
-          // We can use either the () => function() or the () { function(); }
-          // syntax.
+          // We can use either the () => function() or the () { function(); } syntax.
           // TODO: This should call the onTap() passed into the constructor
           onTap: () => _navigateToConverter(context),
           child: Padding(
