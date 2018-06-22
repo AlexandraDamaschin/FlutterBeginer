@@ -11,7 +11,7 @@ final _rowHeight = 100.0;
 final _borderRadius = BorderRadius.circular(_rowHeight / 2);
 
 // A custom [Category] widget.
-//The widget is composed on an [Icon] and [Text]. Tapping on the widget shows
+// The widget is composed on an [Icon] and [Text]. Tapping on the widget shows
 // a colored [InkWell] animation.
 class Category extends StatelessWidget {
   final String name;
@@ -60,8 +60,7 @@ class Category extends StatelessWidget {
             name: name,
             units: units,
           ),
-          // This prevents the attempt to resize the screen when the keyboard
-          // is opened
+          // This prevents the attempt to resize the screen when the keyboard  is opened
           resizeToAvoidBottomPadding: false,
         );
       },
@@ -84,8 +83,7 @@ class Category extends StatelessWidget {
           borderRadius: _borderRadius,
           highlightColor: color['highlight'],
           splashColor: color['splash'],
-          // We can use either the () => function() or the () { function(); }
-          // syntax.
+          // We can use either the () => function() or the () { function(); } syntax.
           onTap: () => _navigateToConverter(context),
           child: Padding(
             padding: EdgeInsets.all(8.0),
