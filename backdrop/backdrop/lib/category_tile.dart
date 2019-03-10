@@ -4,7 +4,6 @@ import 'package:meta/meta.dart';
 import 'category.dart';
 
 // We use an underscore to indicate that these variables are private.
-// See https://www.dartlang.org/guides/language/effective-dart/design#libraries
 const _rowHeight = 100.0;
 final _borderRadius = BorderRadius.circular(_rowHeight / 2);
 
@@ -15,7 +14,6 @@ class CategoryTile extends StatelessWidget {
 
   /// The [CategoryTile] shows the name and color of a [Category] for unit
   /// conversions.
-  ///
   /// Tapping on it brings you to the unit converter.
   const CategoryTile({
     Key key,
@@ -26,7 +24,6 @@ class CategoryTile extends StatelessWidget {
         super(key: key);
 
   /// Builds a custom widget that shows [Category] information.
-  ///
   /// This information includes the icon, name, and color for the [Category].
   @override
   // This `context` parameter describes the location of this widget in the
@@ -52,7 +49,6 @@ class CategoryTile extends StatelessWidget {
               // There are two ways to denote a list: `[]` and `List()`.
               // Prefer to use the literal syntax, i.e. `[]`, instead of `List()`.
               // You can add the type argument if you'd like, i.e. <Widget>[].
-              // See https://www.dartlang.org/guides/language/effective-dart/usage#do-use-collection-literals-when-possible
               children: [
                 Padding(
                   padding: EdgeInsets.all(16.0),

@@ -11,7 +11,6 @@ class Category {
   final IconData iconLocation;
 
   /// Information about a [Category].
-  ///
   /// A [Category] saves the name of the Category (e.g. 'Length'), a list of its
   /// its color for the UI, units for conversions (e.g. 'Millimeter', 'Meter'),
   /// and the icon that represents it (e.g. a ruler).
